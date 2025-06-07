@@ -171,8 +171,8 @@ app.get('/file/:fileName', (req, res, next) => {
 
 })
 app.get("/directory{/:dirname}", async (req, res, next) => {
-   const {0:filepath}=req.params
-   const fullPath=`./storage/${filepath?filepath:""}`
+   const {0:path}=req.params
+   const fullPath=`./storage/${path?path:""}`
    const fileList = await readdir(fullPath)
    const resData=[]
 for(const item of fileList)
