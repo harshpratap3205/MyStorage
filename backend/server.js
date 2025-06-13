@@ -97,7 +97,7 @@ const upload = multer({ storage });
 app.post("/file/:fileName", upload.single('file'), (req, res) => {
   const fileName = req.params.fileName;
   const uploadPath = req.body.path || ''; // 👈 from formData
-   
+
 
   const fullDir = path.join('./storage', uploadPath);
   const fullPath = path.join(fullDir, fileName);
@@ -126,4 +126,4 @@ app.patch("/file/*", async (req, res) => {
 })
 
 // Start server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT||4001, () => console.log(`Server running on port ${PORT||4001}`));
