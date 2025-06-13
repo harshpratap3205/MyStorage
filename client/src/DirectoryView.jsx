@@ -135,7 +135,7 @@ const BaseURL=import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     getdata();
-  }, []);
+  }, [data]);
 const createDirectoryHandler = async (e) => {
   e.preventDefault();
   if (!newDirectoryName.trim()) return alert("Folder name cannot be empty.");
