@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import dotenv from 'dotenv';
 
 function DirectoryView() {
@@ -352,14 +352,14 @@ const createDirectoryHandler = async (e) => {
                         ) : (
                           <>
                          
-                           { isDirectory&&<a href={`${dirname?'/'+dirname:""}/${data}`} >
+                           { isDirectory&&<Link to={`${dirname?'/'+dirname:""}/${data}`}>
                               <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                                 Open
                               </button>
-                            </a>}
+                            </Link>}
                            {!isDirectory?<a href={`${BaseURL}/file${dirname?'/'+dirname:''}/${data}?action=open`} >
                               <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
