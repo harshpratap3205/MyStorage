@@ -63,7 +63,9 @@ for(const item of fileList)
 {const status= await stat(`${fullPath}/${item}`)   
    resData.push({name:item,isDirectory: status.isDirectory()})
 }   
+console.log(resData)
    res.json(resData);
+   
 
 });   
 
