@@ -1,7 +1,6 @@
 
 
-   import multer from 'multer';   
-import express from 'express';
+   import multer from 'multer'; 
 import { createWriteStream } from 'fs';
 import { mkdir, rename, stat } from 'fs/promises';
 import { rm } from 'fs/promises';
@@ -11,7 +10,16 @@ import { fileURLToPath } from 'url';
 import cors from "cors";
 import fs from 'fs'
 import dotenv from "dotenv";
+import express from 'express';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+const expressVersion = require('express/package.json').version;
+
+console.log('✅ Express version:', expressVersion);
+
 dotenv.config();
+
 const PORT = process.env.PORT || 4001;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
